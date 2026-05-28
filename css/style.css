@@ -1,0 +1,106 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #FFF;
+    color: #000;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.contenedor{
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, auto);
+
+    grid-template-areas: "header header header"
+                         "contenido contenido contenido"
+                         "footer footer footer";
+}
+.contenedor > div,
+.contenedor .header
+.contenedor .footer
+.contenedor .contenido{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 4px;
+}
+.contenedor .header{
+    grid-area: header;
+}
+.contenedor .contenido {
+    grid-area: contenido;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FFF;
+    text-align: center;
+    
+}
+
+.contenedor .contenido h3, p{
+    padding: 5px 0 10px 0;
+}
+
+.contenedor .footer{
+    grid-area: footer;
+}
+
+
+.enlaces {
+    grid-column-start: 1;
+    grid-column-end: -1;
+    display: flex;
+    justify-content: center; /* Para alinear los botones horizontalmente */
+    align-items: center;
+    padding: 30px 0 50px 0;
+}
+
+.enlaces ul {
+    list-style-type: none;
+    display: flex; /* Para que los elementos de la lista se distribuyan horizontalmente */
+}
+
+.enlaces ul li {
+    margin: 0 10px; /* Espacio entre los botones */
+}
+
+.boton-pagar,
+.boton-factura,
+.boton-paz-salvo {
+    padding: 10px 20px;
+    background-color: #ff7b00;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.boton-pagar:hover,
+.boton-factura:hover,
+.boton-paz-salvo:hover {
+    background-color: #ff9600;
+}
+
+
+@media screen and (max-width: 768px){
+    .contenedor{
+        grid-template-areas: "header header header"
+                             "contenido contenido contenido"
+                             "footer footer footer";
+    }
+    .enlaces ul {
+        flex-direction: column; /* Cambiar la dirección de la distribución a vertical */
+        align-items: stretch; /* Estirar los elementos para que ocupen todo el ancho */
+    }
+    .enlaces ul li {
+        margin: 20px 0; /* Espacio entre los botones */
+    }
+    .mobile_none{
+        display: none;
+    }
+}
